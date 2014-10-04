@@ -19,4 +19,4 @@ void Google1()
 		cout << x << "\t: " << (float)x / (float)(unsigned)(0xFFFFFFFF) << endl;
 	}
 
-}
+} 

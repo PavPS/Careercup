@@ -14,14 +14,17 @@ void Amazone11();
 void Google1();
 void Google2();
 void Generic1();
+void ThinkCell1();
+void ThinkCell2();
+void JamesChen1();
 
 #include <conio.h>
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Google2();
+	JamesChen1();
 
-	printf("Press any key to continue");
+	printf("Press any key to exit");
 	_getch();
 	return 0;
 }
