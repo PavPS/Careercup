@@ -30,7 +30,7 @@ int _tmain( int argc, _TCHAR* argv[])
 	UNUSED(argc);
 	UNUSED(argv);
 
-	JamesChen3();
+	JamesChen4();
 
 	printf("Press any key to exit");
 	_getch();
