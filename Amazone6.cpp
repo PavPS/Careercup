@@ -22,7 +22,7 @@ int get_max_pos(int value, int size)
 	return size - value - 2;
 }
 
-bool set(int number, int index, vector<int>& arr)
+bool set(unsigned number, unsigned index, vector<int>& arr)
 {
 	if ( index >= arr.size() )
 		return true;
@@ -36,7 +36,7 @@ bool set(int number, int index, vector<int>& arr)
 
 bool is_full(const vector<int>& arr)
 {
-	for (int i = 0; i < arr.size(); i++ )	
+	for (unsigned i = 0; i < arr.size(); i++)
 		if ( !arr[i] )
 			return false;
 
@@ -71,7 +71,7 @@ bool spread(int number, const vector<int>& arr)
 
 			if (is_full(tmp))
 			{
-				for (int i = 0; i < tmp.size(); i++ )	
+				for (unsigned i = 0; i < tmp.size(); i++)
 					cout << tmp[i] << " ";
 				cout << endl;
 

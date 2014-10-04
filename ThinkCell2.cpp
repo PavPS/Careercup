@@ -19,11 +19,11 @@ bool comparerDefault(const int& lhs, const int& rhs)
 	return less<int>().operator()(lhs, rhs);
 }
 
-bool bsearch(vector<int>::const_iterator begin, vector<int>::const_iterator end, int value, const Comparer& cmp = comparerDefault)
+bool bsearch(vector<int>::const_iterator begin, vector<int>::const_iterator end, int value, Comparer& cmp = comparerDefault)
 {
 	while ( begin != end )
 	{
-		auto& middle = begin + (end - begin) / 2;
+		auto middle = begin + (end - begin) / 2;
 		if ( value == *middle )
 			return true;
 
@@ -37,11 +37,11 @@ bool bsearch(vector<int>::const_iterator begin, vector<int>::const_iterator end,
 }
 
 // result >= value
-vector<int>::const_iterator lbound(vector<int>::const_iterator begin, vector<int>::const_iterator end, int value, const Comparer& cmp = comparerDefault)
+vector<int>::const_iterator lbound(vector<int>::const_iterator begin, vector<int>::const_iterator end, int value, Comparer& cmp = comparerDefault)
 {
 	while ( begin != end )
 	{
-		auto& middle = begin + (end - begin) / 2;
+		auto middle = begin + (end - begin) / 2;
 		if ( value == *middle )
 			return middle;
 
@@ -55,11 +55,11 @@ vector<int>::const_iterator lbound(vector<int>::const_iterator begin, vector<int
 }
 
 // result > value
-vector<int>::const_iterator ubound(vector<int>::const_iterator begin, vector<int>::const_iterator end, int value, const Comparer& cmp = comparerDefault)
+vector<int>::const_iterator ubound(vector<int>::const_iterator begin, vector<int>::const_iterator end, int value, Comparer& cmp = comparerDefault)
 {
 	while ( begin != end )
 	{
-		auto& middle = begin + (end - begin) / 2;
+		auto middle = begin + (end - begin) / 2;
 		if ( value == *middle )
 			return ++middle;
 

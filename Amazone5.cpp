@@ -21,7 +21,6 @@ struct bt_node
 
 bt_node** bt_next(bt_node* node, int value)
 {
-	bt_node **victim;
 	if (value <= node->value)
 		return &node->left;
 	else

@@ -52,7 +52,7 @@ void findPath(g_node *from, map<g_node*, g_reference>* measured)
 	}
 
 	map<int, g_node*> task;
-	for (int i = 0; i < from->ways.size(); i++)
+	for (unsigned i = 0; i < from->ways.size(); i++)
 	{
 		g_reference dest = from->ways[i];
 
@@ -153,6 +153,6 @@ void Amazone7()
 
 	auto path = findPath(nodes, 0, nodes.size()-1);
 
-	for (int i = 0; i < path.size(); i++ )	
+	for (unsigned i = 0; i < path.size(); i++)
 		cout << path[i].ref->name << "(" << path[i].weight << ") -> ";
 }

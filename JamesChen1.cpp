@@ -20,33 +20,58 @@ level 4: 1/16  4/16  6/16  4/16  1/16
 */
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
 static const float GlassCapacity = 1.0;
 
-float getGlassFormula(int row, int column)
+static unsigned getRowCellCount(unsigned row)
 {
-	/*
-	if ( row == 0 && column == 0 )
-		return GlassCapacity;
-
-	const int columnCount = row + 1;
-	if ( column == 0 || column == columnCount - 1 )
-		return pow( 0.5f, row );
-
-	return getGlassCoeff(row-1, column-1) + getGlassCoeff(row-1, column+0);
-	*/
-
-	return 0;
+	return row + 1;
 }
 
-float CalcWaterInGlass(int jth, int ith /* DEPTH */, float water)
+static unsigned getCompleteCellCount(unsigned row)
 {
-	return 0;
+	const auto currentRowCellCount = getRowCellCount(row);
+	if (row == 0) return currentRowCellCount;
+
+	return currentRowCellCount + getCompleteCellCount(row - 1);
 }
 
-void DoTest(int jth, int ith, float water)
+static unsigned getCellIndex(unsigned row, unsigned column)
+{
+	auto allCells = getCompleteCellCount(row);
+	return allCells - getRowCellCount(row) + column + 1;
+}
+
+float CalcWaterInGlass(unsigned jth, unsigned ith /* DEPTH */, float water)
+{
+	const auto cellCount = getCompleteCellCount(ith + 1);
+
+	vector<float> galsses(cellCount, 0.0f);
+	galsses[getCellIndex(0, 0)] = water;
+
+	for (unsigned row = 0; row < ith; ++row)
+	{
+		for (unsigned column = 0; column < getRowCellCount(row); ++column)
+		{
+			auto existingAmount = galsses[getCellIndex(row, column)];
+			auto canBeHeldInTheGlass = min(GlassCapacity, existingAmount);
+			auto willBeSharedAmongNeighbors = existingAmount - canBeHeldInTheGlass;
+
+			galsses[getCellIndex(row, column)] = existingAmount - canBeHeldInTheGlass;
+			galsses[getCellIndex(row + 1, column + 0)] += willBeSharedAmongNeighbors / 2;
+			galsses[getCellIndex(row + 1, column + 1)] += willBeSharedAmongNeighbors / 2;
+			if (column == jth && row == ith) break;
+		}
+	}
+
+	return min(GlassCapacity, galsses[getCellIndex(ith, jth)]);
+}
+
+void DoTest(unsigned jth, unsigned ith, float water)
 {
     cout << "Total water:" << water << endl;
     cout << "(" << jth << ", " << ith << ")";

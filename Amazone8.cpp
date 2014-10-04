@@ -22,7 +22,6 @@ struct btp_node
 
 btp_node** btp_next(btp_node* node, int value)
 {
-	btp_node **victim;
 	if (value <= node->value)
 		return &node->left;
 	else
@@ -103,4 +102,5 @@ void Amazone8()
 	auto first = bt_search_rec(root, 4);
 	auto second = bt_search_rec(root, 1);
 	auto common = findCommonNode(first, second);
+	UNUSED(common);
 }

@@ -32,7 +32,7 @@ int getDigitCount(int number)
 void radix_sort(vector<int>& vec)
 {
 	int max = 0;
-	for (int i = 0; i < vec.size(); ++i )
+	for (unsigned i = 0; i < vec.size(); ++i )
 	{
 		int m = getDigitCount(vec[i]);
 		if ( m > max )
@@ -47,13 +47,13 @@ void radix_sort(vector<int>& vec)
 		vector<int> a(tmp.size());
 
 		vector<int> counter(tmp.size());
-		for (int i = 0; i < tmp.size(); ++i )
+		for (unsigned i = 0; i < tmp.size(); ++i)
 			counter[ a[i] = extractRadixLSB(tmp[i], m+1) ]++;
 
-		for (int i = 1; i < tmp.size(); ++i )
+		for (unsigned i = 1; i < tmp.size(); ++i)
 			counter[i] += counter[i-1];
 	
-		for (int i = tmp.size() - 1; i >= 0; --i )
+		for (unsigned i = tmp.size() - 1; i >= 0; --i)
 		{
 			counter[ a[i] ]--;
 			tmp_m[counter[a[i]]] = tmp[i];

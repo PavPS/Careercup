@@ -13,3 +13,4 @@
 
 
 // TODO: reference additional headers your program requires here
+#define UNUSED(xXx) __pragma(warning(suppress:4100)) xXx

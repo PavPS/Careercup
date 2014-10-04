@@ -20,8 +20,11 @@ void JamesChen1();
 
 #include <conio.h>
 
-int _tmain(int argc, _TCHAR* argv[])
+int _tmain( int argc, _TCHAR* argv[])
 {
+	UNUSED(argc);
+	UNUSED(argv);
+
 	JamesChen1();
 
 	printf("Press any key to exit");

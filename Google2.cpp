@@ -62,7 +62,7 @@ void Google2()
 	sort(numbers_new_sorted.begin(), numbers_new_sorted.end(), comparer);
 
 	value_pos tmp;
-	for (int i = 0; i < numbers.size(); ++i)
+	for (unsigned i = 0; i < numbers.size(); ++i)
 	{
 		int current_number = numbers[i];
 		int offset = numbers_new[i];

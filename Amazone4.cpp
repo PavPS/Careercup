@@ -28,7 +28,7 @@ void Amazone4()
 	while(my.size() < bs.size())
 		my.push_back(false);
 
-	for (int i = 0; i < my.size(); i++)
+	for (unsigned i = 0; i < my.size(); i++)
 		assert(my[i] == bs[i]);
 
 	cout << "OK";
