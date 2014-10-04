@@ -18,6 +18,10 @@ void ThinkCell1();
 void ThinkCell2();
 void JamesChen1();
 void JamesChen2();
+void JamesChen3();
+void JamesChen4();
+void JamesChen5();
+void JamesChen6();
 
 #include <conio.h>
 
@@ -26,7 +30,7 @@ int _tmain( int argc, _TCHAR* argv[])
 	UNUSED(argc);
 	UNUSED(argv);
 
-	JamesChen2();
+	JamesChen3();
 
 	printf("Press any key to exit");
 	_getch();
