@@ -1,24 +1,64 @@
 #include "stdafx.h"
 
 /*
-Find the sum of elements in after nth iteration for below operation on array.
+Design an algorithm to find all pairs of integers within an array which sum to a specified value.
 
-original array 4 6 8 3 6 sum = 27
-iteration1 -2 -2 5 -3 sum = -2 (a1= a2-a1)
+-- If the sum of two is equal to the specified value, print it out
 
-iteration2: 0 -7 8 sum= 1
-
-iteration3: 7 -15 sum =-8
-
-O(n) Solution needed
-
-Solution
-Nth coefficients can be computed as follows:
-c(n,0) * a[i] - c(n, 1) * a[i+1] + c(n, 2) * a[i+2] + ... + (-1)n-1 * c(n, n) * a[i + n]
-1. Calculate c(n, k)
-2. Apply weighted multiplication with c(n, k)
-3. Calculate sum of the multiplication
 */
+
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
 void JamesChen5()
 {
+	const unsigned capacity = 20;
+	vector<int> values;
+
+	cout << "original values: ";
+	for (unsigned i = 0; i < capacity; ++i)
+	{
+		values.push_back(rand() % capacity);
+		cout << values.back() << " ";
+	}
+	cout << endl;
+
+	const int sum = rand() % capacity;
+	cout << "required sum is: " << sum << endl;
+
+	sort(values.begin(), values.end());
+	cout << "sorted values:   ";
+	for (const auto& value : values)
+		cout << value << " ";
+	cout << endl;
+
+	for (const auto& value : values)
+	{
+		cout << "searching pair for value " << value << ": ";
+		if (value > sum)
+		{
+			cout << "NO (too large)" << endl;
+			continue;
+		}
+
+		const auto target = sum - value;
+		vector<int>::const_iterator found = lower_bound(values.begin(), values.end(), target);
+		if (values.end() == found || *found != target)
+		{
+			cout << "NO (end of search)" << endl;
+			continue;
+		}
+
+		while (values.end() != found && *found == target)
+		{
+			cout << *found << " ";
+			++found;
+		}
+
+		cout  << endl;
+	}
+
 }
