@@ -107,5 +107,8 @@
     <ClCompile Include="JamesChen10.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="JamesChen11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

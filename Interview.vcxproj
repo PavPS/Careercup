@@ -87,6 +87,7 @@
     <ClCompile Include="Google2.cpp" />
     <ClCompile Include="JamesChen1.cpp" />
     <ClCompile Include="JamesChen10.cpp" />
+    <ClCompile Include="JamesChen11.cpp" />
     <ClCompile Include="JamesChen2.cpp" />
     <ClCompile Include="JamesChen3.cpp" />
     <ClCompile Include="JamesChen4.cpp" />
