@@ -1,6 +1,6 @@
-#if defined(_MSC_VER)
+//#if defined(_MSC_VER)
 #include "stdafx.h"
-#endif
+//#endif
 
 /*
 Find the largest subarray with equal number of 0's and 1's
@@ -56,7 +56,7 @@ void JamesChen9()
 	cout << endl;
 
 	int tail = 0;
-	int maxLength = 0;
+	unsigned maxLength = 0;
 	for (unsigned i = 0; i < values.size(); ++i)
 	{
 		if (i + maxLength >= values.size()) break;
