@@ -6,6 +6,7 @@ while true
 do
     echo
     ./a.out
+    echo
     inotifywait -e close_write "$SRC"
     if [ -f "$SRC" ];
     then
