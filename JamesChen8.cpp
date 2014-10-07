@@ -1,6 +1,4 @@
-//#if defined(_MSC_VER)
 #include "stdafx.h"
-//#endif
 
 /*
 Find the continuous sequence with the largest sum

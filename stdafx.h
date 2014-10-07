@@ -5,12 +5,13 @@
 
 #pragma once
 
+#if defined(_MSC_VER)
 #include "targetver.h"
-
 #include <stdio.h>
 #include <tchar.h>
 
-
-
 // TODO: reference additional headers your program requires here
 #define UNUSED(xXx) __pragma(warning(suppress:4100)) xXx
+
+#endif
+

@@ -12,7 +12,7 @@ example 001010101
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include <iomanip>
+#include <iomanip> 
 #include <unordered_map>
 
 using namespace std;
@@ -21,7 +21,7 @@ void JamesChen9()
 {
 	cout << "        ";
 	vector<int> values;
-	for (unsigned i = 0; i < 10; ++i)
+	for (unsigned i = 0; i < 15; ++i)
 	{
 		values.push_back(rand() % 2);
 		cout << "#" << setfill('0') << setw(2) << i << " ";
@@ -84,26 +84,23 @@ void JamesChen9()
 	maxLength = 0;
 	for (unsigned i = 0; i < values.size(); ++i)
 	{
-		if (values[i] == 0)
-			--growingSum;
-		else
-			++growingSum;
+		auto awaitable = growingSum + ((values[i] == 0) ? -1 : +1);
 
-		auto awaitable = growingSum + ((values[i] == 0) ? 1 : 0);
-
-		cout << "searching for: " << awaitable << endl;
 		if (um.find(awaitable) != um.end())
 		{
 			if (i - um[awaitable] > maxLength)
 			{
-				cout << "found at: " << um[awaitable] << endl;
-
 				maxLength = i - um[awaitable] + 1;
 				tail = um[awaitable];
 			}
 		}
 
 		um.insert( make_pair(growingSum, i) );
+
+		if (values[i] == 0)
+			--growingSum;
+		else
+			++growingSum;
 	}
 
 	cout << "Algorithm 2" << endl;
