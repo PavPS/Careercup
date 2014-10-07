@@ -28,6 +28,7 @@ void JamesChen9();
 void JamesChen10();
 void JamesChen11();
 void JamesChen12();
+void JamesChen13();
 
 #include <conio.h>
 
@@ -36,7 +37,7 @@ int _tmain( int argc, _TCHAR* argv[])
 	UNUSED(argc);
 	UNUSED(argv);
 
-	JamesChen12();
+	JamesChen13();
 
 	printf("Press any key to exit");
 	_getch();
