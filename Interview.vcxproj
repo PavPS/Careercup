@@ -90,6 +90,7 @@
     <ClCompile Include="JamesChen11.cpp" />
     <ClCompile Include="JamesChen12.cpp" />
     <ClCompile Include="JamesChen13.cpp" />
+    <ClCompile Include="JamesChen14.cpp" />
     <ClCompile Include="JamesChen2.cpp" />
     <ClCompile Include="JamesChen3.cpp" />
     <ClCompile Include="JamesChen4.cpp" />
