@@ -1,15 +1,14 @@
 #!/bin/sh
 
-SRC="JamesChen12.cpp"
+SRC="JamesChen17.cpp"
 
 while true
 do
     echo
-    ./a.out
     inotifywait -q -e close_write "$SRC"
     if [ -f "$SRC" ];
     then
-	g++ -std=c++11 "$SRC"
+	g++ -std=c++11 "$SRC" && ./a.out
     fi
     
     sleep 1
