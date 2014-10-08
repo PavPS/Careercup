@@ -128,5 +128,8 @@
     <ClCompile Include="JamesChen17.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="JamesChen18.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
