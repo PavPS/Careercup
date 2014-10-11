@@ -36,6 +36,10 @@ void JamesChen17();
 void JamesChen18();
 void JamesChen19();
 void JamesChen20();
+void JamesChen21();
+void JamesChen22();
+void JamesChen23();
+void JamesChen24();
 
 #include <conio.h>
 

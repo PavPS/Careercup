@@ -98,6 +98,10 @@
     <ClCompile Include="JamesChen19.cpp" />
     <ClCompile Include="JamesChen2.cpp" />
     <ClCompile Include="JamesChen20.cpp" />
+    <ClCompile Include="JamesChen21.cpp" />
+    <ClCompile Include="JamesChen22.cpp" />
+    <ClCompile Include="JamesChen23.cpp" />
+    <ClCompile Include="JamesChen24.cpp" />
     <ClCompile Include="JamesChen3.cpp" />
     <ClCompile Include="JamesChen4.cpp" />
     <ClCompile Include="JamesChen5.cpp" />
