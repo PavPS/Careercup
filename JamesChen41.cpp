@@ -1,7 +1,6 @@
 #include "stdafx.h"
 
 /*
-Print all permutations of n distinct elements.
 */
 
 #include <iostream>
@@ -14,5 +13,5 @@ using namespace std;
 
 void JamesChen41()
 {
-
+#pragma message ("Free 41")
 }

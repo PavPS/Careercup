@@ -1,7 +1,6 @@
 #include "stdafx.h"
 
 /*
-https://sites.google.com/site/spaceofjameschen/home/recursion/number-maze
 */
 
 #include <iostream>
@@ -14,5 +13,5 @@ using namespace std;
 
 void JamesChen40()
 {
-
+#pragma message ("Free 40")
 }

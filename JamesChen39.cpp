@@ -1,7 +1,6 @@
 #include "stdafx.h"
 
 /*
-Write a method that returns all subsets of a set.
 */
 
 #include <iostream>
@@ -14,5 +13,5 @@ using namespace std;
 
 void JamesChen39()
 {
-
+#pragma message ("Free JamesChen39")
 }
