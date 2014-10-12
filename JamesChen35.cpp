@@ -1,7 +1,6 @@
 ﻿#include "stdafx.h"
 
 /*
-Place eight queens on an 8x8 chessboard so that no two queens attack each other
 */
 
 #include <iostream>
@@ -14,5 +13,5 @@ using namespace std;
 
 void JamesChen35()
 {
-
+#pragma message ( "Free JamesChen35")
 }
