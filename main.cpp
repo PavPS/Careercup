@@ -68,7 +68,7 @@ int _tmain( int argc, _TCHAR* argv[])
 	UNUSED(argc);
 	UNUSED(argv);
 
-	JamesChen43();
+	JamesChen42();
 
 	printf("Press any key to exit");
 	_getch();
