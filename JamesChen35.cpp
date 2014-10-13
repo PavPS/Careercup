@@ -8,7 +8,7 @@ Find a number in the array having least difference with the given number (n) -- 
 #include <algorithm>
 #include <iomanip>
 #include <string>
-#include <assert.h>
+#include <vector>
 
 using namespace std;
 

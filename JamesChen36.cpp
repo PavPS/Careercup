@@ -12,7 +12,7 @@ In this array, answer will be 3, 6, 9
 #include <algorithm>
 #include <iomanip>
 #include <string>
-#include <assert.h>
+#include <vector>
 
 using namespace std;
 
