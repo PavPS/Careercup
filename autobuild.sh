@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRC="JamesChen46.cpp"
+SRC="JamesChen47.cpp"
 
 while true
 do
