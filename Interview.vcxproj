@@ -123,7 +123,15 @@
     <ClCompile Include="JamesChen41.cpp" />
     <ClCompile Include="JamesChen42.cpp" />
     <ClCompile Include="JamesChen43.cpp" />
+    <ClCompile Include="JamesChen44.cpp" />
+    <ClCompile Include="JamesChen45.cpp" />
+    <ClCompile Include="JamesChen46.cpp" />
+    <ClCompile Include="JamesChen47.cpp" />
+    <ClCompile Include="JamesChen48.cpp" />
+    <ClCompile Include="JamesChen49.cpp" />
     <ClCompile Include="JamesChen5.cpp" />
+    <ClCompile Include="JamesChen50.cpp" />
+    <ClCompile Include="JamesChen52.cpp" />
     <ClCompile Include="JamesChen6.cpp" />
     <ClCompile Include="JamesChen7.cpp" />
     <ClCompile Include="JamesChen8.cpp" />

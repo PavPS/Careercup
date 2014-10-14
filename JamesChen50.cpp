@@ -48,7 +48,7 @@ void replacePattern1(const string& pattern, const string& replacement, string& s
 
 		if (pattern.size() == m)
 		{
-			copy(replacement.begin(), replacement.end(), &str[writeIndex]);
+			copy(replacement.begin(), replacement.end(), str.begin() + writeIndex);
 			readPointer += pattern.size() - (writeIndex - comparePointer);
 			writeIndex = comparePointer + replacement.size();
 			//cout << "X, writeIndex = " << writeIndex << endl;

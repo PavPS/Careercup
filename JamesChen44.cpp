@@ -31,7 +31,7 @@ string fixMissing(string& str)
 		if (next > prev+2) continue;
 
 		unsigned pos = w;
-		while(true)
+		for (;;)
 		{
 			if (next == prev + 2 || next == (prev + 2) / 10)
 			{

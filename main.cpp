@@ -59,6 +59,7 @@ void JamesChen40();
 void JamesChen41();
 void JamesChen42();
 void JamesChen43();
+void JamesChen52();
 
 
 #include <conio.h>

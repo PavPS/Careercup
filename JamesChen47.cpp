@@ -18,7 +18,6 @@ string encodeStr(const string& str)
 	auto tmp(str);
 	char ch = 0;
 	int count = 0;
-	unsigned readIndex = 0;
 	unsigned writeIndex = 0;
 	for (unsigned readIndex = 0; readIndex < tmp.size(); ++readIndex)
 	{
