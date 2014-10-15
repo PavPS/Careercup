@@ -4,10 +4,8 @@
 #include <set>
 
 /*
-
 Given a binary search tree.
 Given two nodes. Find common node is exists.
-
 */
 
 using namespace std;
@@ -102,5 +100,14 @@ void Amazone8()
 	auto first = bt_search_rec(root, 4);
 	auto second = bt_search_rec(root, 1);
 	auto common = findCommonNode(first, second);
-	UNUSED(common);
+	//UNUSED(common);
 }
+
+
+#if !defined(_MSC_VER)
+int main()
+{
+	Amazone8();
+	return 0;
+}
+#endif
