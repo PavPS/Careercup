@@ -49,8 +49,12 @@ void Amazone2()
 	}
 
 	printIt(prev);
-
-	int i;
-	cin >> i;
-
 }
+
+#if !defined(_MSC_VER)
+int main()
+{
+	Amazone2();
+	return 0;
+}
+#endif

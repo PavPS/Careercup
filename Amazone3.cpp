@@ -55,3 +55,11 @@ void Amazone3()
 		++i;
 	}while( next_permutation(iter1, iter2));
 }
+
+#if !defined(_MSC_VER)
+int main()
+{
+	Amazone3();
+	return 0;
+}
+#endif

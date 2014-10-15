@@ -94,6 +94,13 @@ void Amazone6()
 
 	spread(n, arr);
 
-
 	cout << endl;
 }
+
+#if !defined(_MSC_VER)
+int main()
+{
+	Amazone6();
+	return 0;
+}
+#endif

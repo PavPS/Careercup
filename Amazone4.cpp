@@ -32,7 +32,12 @@ void Amazone4()
 		assert(my[i] == bs[i]);
 
 	cout << "OK";
-
-	int tmp;
-	cin >> tmp;
 }
+
+#if !defined(_MSC_VER)
+int main()
+{
+	Amazone4();
+	return 0;
+}
+#endif

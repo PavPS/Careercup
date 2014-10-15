@@ -155,4 +155,14 @@ void Amazone7()
 
 	for (unsigned i = 0; i < path.size(); i++)
 		cout << path[i].ref->name << "(" << path[i].weight << ") -> ";
+
+	cout << endl;
 }
+
+#if !defined(_MSC_VER)
+int main()
+{
+	Amazone7();
+	return 0;
+}
+#endif

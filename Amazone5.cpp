@@ -77,8 +77,10 @@ bt_node* bt_search_bfs(bt_node* node, int value)
 		if ( tmp->value == value )
 			return tmp;
 
-		nodes.push(tmp->left);
-		nodes.push(tmp->right);
+		if (value <= tmp->value)
+			nodes.push(tmp->left);
+		else
+			nodes.push(tmp->right);
 	}
 
 	return nullptr;
@@ -101,8 +103,10 @@ bt_node* bt_search_dfs(bt_node* node, int value)
 		if ( tmp->value == value )
 			return tmp;
 
-		nodes.push(tmp->left);
-		nodes.push(tmp->right);
+		if (value <= tmp->value)
+			nodes.push(tmp->left);
+		else
+			nodes.push(tmp->right);
 	}
 
 	return nullptr;
@@ -132,3 +136,11 @@ void Amazone5()
 	assert(bt_search_rec(root, 9) == bt_search_dfs(root, 9));
 	assert(bt_search_rec(root, 7) == bt_search_dfs(root, 7));
 }
+
+#if !defined(_MSC_VER)
+int main()
+{
+	Amazone5();
+	return 0;
+}
+#endif

@@ -73,5 +73,13 @@ void Amazone1()
 		}
 	}
 
-	cout << "Max string is: " << maxWord << " " << maxNode->count << " characters long";
+	cout << "Max string is: " << maxWord << " " << maxNode->count << " characters long" << endl;
 } 
+
+#if !defined(_MSC_VER)
+int main()
+{
+	Amazone1();
+	return 0;
+}
+#endif
