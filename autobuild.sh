@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRC="Google3.cpp"
+SRC="Amazone12.cpp"
 
 while true
 do
