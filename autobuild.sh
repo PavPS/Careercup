@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRC="Amazone12.cpp"
+SRC="Interviewcake1.cpp"
 
 while true
 do
