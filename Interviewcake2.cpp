@@ -39,6 +39,8 @@ Do some parts of your function seem very similar? Can they be refactored so you 
 #include <iostream>
 #include <assert.h>
 #include <iomanip>
+#include <set>
+#include <algorithm>
 
 using namespace std;
 
@@ -47,9 +49,72 @@ typedef struct TRectangle
     int x, y, width, height;
 }Rectangle;
 
+bool isBelong(const Rectangle& rect, const Rectangle& probe)
+{
+    return 
+        probe.x >= rect.x && probe.y >= rect.y 
+        && 
+        (probe.x + probe.width) <= (rect.x + rect.width) && (probe.y + probe.height) <= (rect.y + rect.height);
+}
+
 void rect_cross(const Rectangle& r1, const Rectangle& r2, Rectangle& cross)
 {
+    vector<int> xs;
+    xs.push_back(r1.x);
+    xs.push_back(r1.x + r1.width);
+    xs.push_back(r2.x);
+    xs.push_back(r2.x + r2.width);
 
+    unique(xs.begin(), xs.end());
+    sort(xs.begin(), xs.end());
+
+    vector<int> ys;
+    ys.push_back(r1.y);
+    ys.push_back(r1.y + r1.height);
+    ys.push_back(r2.y);
+    ys.push_back(r2.y + r2.height);
+
+    unique(ys.begin(), ys.end());
+    sort(ys.begin(), ys.end());
+
+    set<int> result_x, result_y;
+
+    for (unsigned x = 1; x < xs.size(); ++x)
+    {
+        const auto& left = xs[x-1];
+        const auto& right = xs[x-0];
+        for (unsigned y = 1; y < ys.size(); ++y)
+        {
+            const auto& top = ys[y-1];
+            const auto& bottom = ys[y-0];
+
+            Rectangle test;
+            test.x = left;
+            test.y = top;
+            test.width = right - left;
+            test.height = bottom - top;
+
+            if (isBelong(r1, test) && isBelong(r2, test))
+            {
+                result_x.insert(left);
+                result_x.insert(right);
+                result_y.insert(top);
+                result_y.insert(bottom);
+            }
+        }
+    }
+
+    Rectangle result = {0};
+    if (result_x.size() > 1 && result_y.size() > 1)
+    {
+        result.x = *result_x.begin();
+        result.width = *(--result_x.end()) - result.x;
+
+        result.y = *result_y.begin();
+        result.height = *(--result_y.end()) - result.y;
+    }
+
+    cross = result;
 }
 
 void testAngleCross()
@@ -220,6 +285,8 @@ void Interviewcake2()
     testSideCross();
     testBulletCross();
     testAngleCross();
+
+    cout << "OK" << endl;
 }
 
 #if !defined(_MSC_VER)
