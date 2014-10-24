@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRC="Interviewcake1.cpp"
+SRC="Interviewcake2.cpp"
 
 while true
 do
