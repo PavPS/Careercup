@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRC="Epic3.cpp"
+SRC="Amazone13.cpp"
 
 while true
 do
