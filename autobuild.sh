@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRC="Amazone13.cpp"
+SRC="NetApp1.cpp"
 
 while true
 do
