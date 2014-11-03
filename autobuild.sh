@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRC="NetApp1.cpp"
+SRC="Microsoft1.cpp"
 
 while true
 do
