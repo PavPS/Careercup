@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRC="Microsoft1.cpp"
+SRC=`ls -t *.cpp | head -n 1`
 
 while true
 do
