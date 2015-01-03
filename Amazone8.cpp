@@ -100,7 +100,7 @@ void Amazone8()
 	auto first = bt_search_rec(root, 4);
 	auto second = bt_search_rec(root, 1);
 	auto common = findCommonNode(first, second);
-	//UNUSED(common);
+	UNUSED(common);
 }
 
 

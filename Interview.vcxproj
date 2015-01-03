@@ -83,6 +83,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Generic1.cpp" />
+    <ClCompile Include="Generic2.cpp" />
+    <ClCompile Include="Generic3.cpp" />
     <ClCompile Include="Google1.cpp" />
     <ClCompile Include="Google2.cpp" />
     <ClCompile Include="JamesChen1.cpp" />

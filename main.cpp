@@ -14,6 +14,8 @@ void Amazone11();
 void Google1();
 void Google2();
 void Generic1();
+void Generic2();
+void Generic3();
 void ThinkCell1();
 void ThinkCell2();
 void JamesChen1();
@@ -69,7 +71,7 @@ int _tmain( int argc, _TCHAR* argv[])
 	UNUSED(argc);
 	UNUSED(argv);
 
-	JamesChen52();
+	Generic3();
 
 	printf("Press any key to exit");
 	_getch();
