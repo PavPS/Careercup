@@ -82,11 +82,19 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Amazone12.cpp" />
+    <ClCompile Include="Amazone13.cpp" />
+    <ClCompile Include="Epic1.cpp" />
+    <ClCompile Include="Epic2.cpp" />
     <ClCompile Include="Generic1.cpp" />
     <ClCompile Include="Generic2.cpp" />
     <ClCompile Include="Generic3.cpp" />
     <ClCompile Include="Google1.cpp" />
     <ClCompile Include="Google2.cpp" />
+    <ClCompile Include="Google3.cpp" />
+    <ClCompile Include="Google4.cpp" />
+    <ClCompile Include="Interviewcake1.cpp" />
+    <ClCompile Include="Interviewcake2.cpp" />
     <ClCompile Include="JamesChen1.cpp" />
     <ClCompile Include="JamesChen10.cpp" />
     <ClCompile Include="JamesChen11.cpp" />
@@ -133,6 +141,7 @@
     <ClCompile Include="JamesChen49.cpp" />
     <ClCompile Include="JamesChen5.cpp" />
     <ClCompile Include="JamesChen50.cpp" />
+    <ClCompile Include="JamesChen51.cpp" />
     <ClCompile Include="JamesChen52.cpp" />
     <ClCompile Include="JamesChen6.cpp" />
     <ClCompile Include="JamesChen7.cpp" />
@@ -150,6 +159,8 @@
     <ClCompile Include="Amazone7.cpp" />
     <ClCompile Include="Amazone8.cpp" />
     <ClCompile Include="Amazone9.cpp" />
+    <ClCompile Include="Microsoft1.cpp" />
+    <ClCompile Include="NetApp1.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

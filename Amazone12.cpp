@@ -26,6 +26,7 @@ Code in Java.
 #include <iostream>
 #include <assert.h>
 #include <iomanip>
+#include <algorithm>
 
 using namespace std;
 
@@ -35,10 +36,10 @@ void Amazone12()
 	for (int i = 1; i <= 45;++i)
 		values.push_back(i);
 
-	const int RowCount = 4;
-	for (int start = 0, majorStep = 2, row = 0; row < RowCount; start+= min(RowCount,majorStep), ++majorStep, ++row)
+	const unsigned RowCount = 4;
+	for (unsigned start = 0, majorStep = 2, row = 0; row < RowCount; start += min(RowCount, majorStep), ++majorStep, ++row)
 	{
-		for (int k = start, minorStep = majorStep-1; k < values.size(); k+= min(RowCount,minorStep), ++minorStep)
+		for (unsigned k = start, minorStep = majorStep - 1; k < values.size(); k += min(RowCount, minorStep), ++minorStep)
 			cout << setw(2) << values[k] << " ";
 		cout << endl;
 	}

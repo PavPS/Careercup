@@ -126,7 +126,7 @@ public:
 	static bool is_overflow(const T& a, const T& b);
 };
 
-template<>
+//template<>
 template<typename T>
 class numeric_overflow<T, false> {
 public:
@@ -139,7 +139,7 @@ public:
 	}
 };
 
-template<>
+//template<>
 template<typename T>
 class numeric_overflow<T, true> {
 public:
@@ -179,7 +179,7 @@ unsigned getPixelIndex(unsigned row, unsigned column, unsigned width)
 	return row * width + column;
 }
 
-PixelType const*generateImage(unsigned width, unsigned height)
+PixelType const*generateImage(unsigned/* width*/, unsigned/* height*/)
 {
 	return reinterpret_cast<PixelType const*>(img_rgba);
 }

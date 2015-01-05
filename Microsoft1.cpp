@@ -66,7 +66,7 @@ void getMaxPath1(const vector< vector<int> >& numbers, vector<int>& path)
 	}
 	cout << endl;
 
-	int maxIndex = 0;
+	unsigned maxIndex = 0;
 	for (unsigned c = 1; c < tmp[tmp.size() - 1].size(); ++c)
 		if (tmp[tmp.size() - 1][c] > tmp[tmp.size() - 1][maxIndex])
 			maxIndex = c;

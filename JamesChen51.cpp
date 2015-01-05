@@ -40,7 +40,7 @@ public:
 };
 
 class EEE : public DDD { };
-class FFF : public EEE, public DDD { };
+//class FFF : public EEE, public DDD { };
 
 class XYZ { };
 
@@ -88,7 +88,7 @@ void JamesChen51()
 
 	// -------------------------------------------------------------------------------------
 
-	FFF *f = new FFF();	
+	//FFF *f = new FFF();	
 	// Ambiguous
 	// assert("DDD" == f->print_DDD());
 
