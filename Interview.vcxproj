@@ -147,6 +147,7 @@
     <ClCompile Include="JamesChen7.cpp" />
     <ClCompile Include="JamesChen8.cpp" />
     <ClCompile Include="JamesChen9.cpp" />
+    <ClCompile Include="Lexmark1.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Amazone1.cpp" />
     <ClCompile Include="Amazone10.cpp" />

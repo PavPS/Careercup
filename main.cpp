@@ -62,7 +62,7 @@ void JamesChen41();
 void JamesChen42();
 void JamesChen43();
 void JamesChen52();
-
+void Lexmark1();
 
 #include <conio.h>
 
@@ -71,7 +71,7 @@ int _tmain( int argc, _TCHAR* argv[])
 	UNUSED(argc);
 	UNUSED(argv);
 
-	Generic3();
+	Lexmark1();
 
 	printf("Press any key to exit");
 	_getch();
