@@ -301,4 +301,28 @@ void Lexmark1()
 	assert(node_9 == findCommonParent4(node_4, node_9));
 	assert(root_2 == findCommonParent4(node_4, node_7));
 	assert(root_2 == findCommonParent4(node_5_2, node_11));
+
+	auto r = lmCreateNode(0);
+	auto n1 = lmCreateNode(1);
+	auto n2 = lmCreateNode(2);
+	auto n3 = lmCreateNode(3);
+	auto n4 = lmCreateNode(4);
+	auto n5 = lmCreateNode(5);
+	auto n6 = lmCreateNode(6);
+	auto n7 = lmCreateNode(7);
+	auto n8 = lmCreateNode(8);
+
+	lmAddChild(n6, n7);
+	lmAddChild(n6, n8);
+
+	lmAddChild(n4, n5);
+	lmAddChild(n4, n6);
+
+	lmAddChild(n2, n3);
+	lmAddChild(n2, n4);
+
+	lmAddChild(r, n1);
+	lmAddChild(r, n2);
+
+	assert(n2 == findCommonParent4(n3, n8));
 }
