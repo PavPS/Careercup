@@ -136,6 +136,8 @@ lmTreeNode<T> const* findCommonParent1(lmTreeNode<T> const *node1, lmTreeNode<T>
 	return nullptr;
 }
 
+typedef lmTreeNode<int> SimpleNode;
+
 //
 // Simplified version. Compare by pointers.
 // Performance required: O(h), where h is tree height.
@@ -145,7 +147,7 @@ lmTreeNode<T> const* findCommonParent1(lmTreeNode<T> const *node1, lmTreeNode<T>
 // Solution below uses recursion and memory is h (which not constant) 
 // and performance is O(2h + summ(arithmetic progression)(1 to h)) = O(2h + (1+h)*h) which is ~O(h^2)
 //
-lmTreeNode<int> const* findCommonParent2(lmTreeNode<int> const *node1, lmTreeNode<int> const *node2)
+SimpleNode const* findCommonParent2(SimpleNode const *node1, SimpleNode const *node2)
 {
 	if (!node1 || !node2)
 		return nullptr;
@@ -165,11 +167,11 @@ lmTreeNode<int> const* findCommonParent2(lmTreeNode<int> const *node1, lmTreeNod
 // Memory: M(h) - vectors (non-const)
 // Performance: O(h)
 //
-lmTreeNode<int> const* findCommonParent3(lmTreeNode<int> const *node1, lmTreeNode<int> const *node2)
+SimpleNode const* findCommonParent3(SimpleNode const *node1, SimpleNode const *node2)
 {
-	vector<lmTreeNode<int> const*> path1, path2;
+	vector<SimpleNode const*> path1, path2;
 
-	lmTreeNode<int> const* tmp = node1;
+	SimpleNode const* tmp = node1;
 	while (tmp)
 	{
 		path1.push_back(tmp);
@@ -188,6 +190,59 @@ lmTreeNode<int> const* findCommonParent3(lmTreeNode<int> const *node1, lmTreeNod
 		++same;
 
 	return *(path1.crbegin() + same - 1);
+}
+
+//
+//	Another solution of task above
+//
+/* Pseudo code
+
+size_1 <- count_until_root(node1)
+size_2 <- count_until_root(node2)
+if (size_1 > size_2) {
+  node1 <- node1.parent
+  size_1 <- size_1 - 1
+}
+if (size_2 > size_1) {
+  node2 <- node2.parent
+  size_2 <- size_2 - 1
+}
+while ( node2 != node1 ) {
+  node2 <- node2.parent
+  node1 <- node1.parent
+}
+ret node1
+*/
+SimpleNode const* findCommonParent4(SimpleNode const *node1, SimpleNode const *node2)
+{
+	unsigned size_1 = 0;
+	for (SimpleNode const* tmp = node1; tmp; tmp = tmp->parent)
+		++size_1;
+
+	unsigned size_2 = 0;
+	for (SimpleNode const* tmp = node2; tmp; tmp = tmp->parent)
+		++size_2;
+
+	while (size_1 < size_2)
+	{
+		node2 = node2->parent;
+		--size_2;
+	}
+
+	while (size_1 > size_2)
+	{
+		node1 = node1->parent;
+		--size_1;
+	}
+
+
+	while (node1 != node2)
+	{
+		node1 = node1->parent;
+		node2 = node2->parent;
+	}
+
+	return node1;
 }
 
 // see example image here: http://en.wikipedia.org/wiki/Tree_(data_structure)
@@ -236,4 +291,14 @@ void Lexmark1()
 	assert(root_2 == findCommonParent3(node_4, node_6));
 	assert(node_7 == findCommonParent3(node_2, node_11));
 	assert(node_9 == findCommonParent3(node_4, node_9));
+
+	//////////////////////////////////////////////////////////
+
+	assert(root_2 == findCommonParent4(root_2, root_2));
+	assert(node_7 == findCommonParent4(node_2, node_6));
+	assert(root_2 == findCommonParent4(node_4, node_6));
+	assert(node_7 == findCommonParent4(node_2, node_11));
+	assert(node_9 == findCommonParent4(node_4, node_9));
+	assert(root_2 == findCommonParent4(node_4, node_7));
+	assert(root_2 == findCommonParent4(node_5_2, node_11));
 }
