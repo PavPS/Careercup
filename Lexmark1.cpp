@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <stack>
 #include <set>
+#include <algorithm>
 
 using namespace std;
 
@@ -106,7 +107,7 @@ size_t lmCountNodes(lmTreeNode<T> const *parent)
 //
 
 template< typename T, typename TLess = lmTreeNodeLessPointer<T> >
-lmTreeNode<T> const* findCommonParent(lmTreeNode<T> const *node1, lmTreeNode<T> const *node2)
+lmTreeNode<T> const* findCommonParent1(lmTreeNode<T> const *node1, lmTreeNode<T> const *node2)
 {
 	assert(node1);
 	assert(node2);
@@ -135,6 +136,60 @@ lmTreeNode<T> const* findCommonParent(lmTreeNode<T> const *node1, lmTreeNode<T> 
 	return nullptr;
 }
 
+//
+// Simplified version. Compare by pointers.
+// Performance required: O(h), where h is tree height.
+// Memory requirements: const
+// Sanity checks are omitted.
+//
+// Solution below uses recursion and memory is h (which not constant) 
+// and performance is O(2h + summ(arithmetic progression)(1 to h)) = O(2h + (1+h)*h) which is ~O(h^2)
+//
+lmTreeNode<int> const* findCommonParent2(lmTreeNode<int> const *node1, lmTreeNode<int> const *node2)
+{
+	if (!node1 || !node2)
+		return nullptr;
+
+	if (node1 == node2 && node1->parent)
+		return node2;
+
+	auto found1 = findCommonParent2(node1->parent, node2);
+	if (found1 != nullptr)
+		return found1;
+
+	return findCommonParent2(node1, node2->parent);
+}
+
+//
+// Another solution of task above
+// Memory: M(h) - vectors (non-const)
+// Performance: O(h)
+//
+lmTreeNode<int> const* findCommonParent3(lmTreeNode<int> const *node1, lmTreeNode<int> const *node2)
+{
+	vector<lmTreeNode<int> const*> path1, path2;
+
+	lmTreeNode<int> const* tmp = node1;
+	while (tmp)
+	{
+		path1.push_back(tmp);
+		tmp = tmp->parent;
+	}
+
+	tmp = node2;
+	while (tmp)
+	{
+		path2.push_back(tmp);
+		tmp = tmp->parent;
+	}
+
+	auto same = 0u;
+	while (same < min(path1.size(), path2.size()) && *(path1.crbegin() + same) == *(path2.crbegin() + same))
+		++same;
+
+	return *(path1.crbegin() + same - 1);
+}
+
 // see example image here: http://en.wikipedia.org/wiki/Tree_(data_structure)
 void Lexmark1()
 {
@@ -160,10 +215,25 @@ void Lexmark1()
 	assert(9 == lmCountNodes(root_2));
 
 	typedef lmTreeNodeLessPointer<int> comparer;
-	assert( (lmIsSameNode<int, comparer>(root_2, findCommonParent(root_2, root_2))) );
-	assert( (lmIsSameNode< int, comparer >(node_7, findCommonParent(node_2, node_6))) );
-	assert( (lmIsSameNode< int, comparer >(root_2, findCommonParent(node_4, node_6))) );
-	assert( (lmIsSameNode< int, comparer >(node_7, findCommonParent(node_2, node_11))) );
+	assert( (lmIsSameNode<int, comparer>(root_2, findCommonParent1(root_2, root_2))) );
+	assert( (lmIsSameNode< int, comparer >(node_7, findCommonParent1(node_2, node_6))) );
+	assert( (lmIsSameNode< int, comparer >(root_2, findCommonParent1(node_4, node_6))) );
+	assert( (lmIsSameNode< int, comparer >(node_7, findCommonParent1(node_2, node_11))) );
 
-	assert((lmIsSameNode< int, lmTreeNodeLessValue<int> >(node_7, findCommonParent(node_2, node_11))));
+	assert((lmIsSameNode< int, lmTreeNodeLessValue<int> >(node_7, findCommonParent1(node_2, node_11))));
+
+	//////////////////////////////////////////////////////////
+
+	//assert(root_2 == findCommonParent2(root_2, root_2));
+	assert(node_7 == findCommonParent2(node_2, node_6));
+	//assert(root_2 == findCommonParent2(node_4, node_6));
+	assert(node_7 == findCommonParent2(node_2, node_11));
+
+	//////////////////////////////////////////////////////////
+
+	assert(root_2 == findCommonParent3(root_2, root_2));
+	assert(node_7 == findCommonParent3(node_2, node_6));
+	assert(root_2 == findCommonParent3(node_4, node_6));
+	assert(node_7 == findCommonParent3(node_2, node_11));
+	assert(node_9 == findCommonParent3(node_4, node_9));
 }
