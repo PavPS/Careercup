@@ -199,11 +199,11 @@ SimpleNode const* findCommonParent3(SimpleNode const *node1, SimpleNode const *n
 
 size_1 <- count_until_root(node1)
 size_2 <- count_until_root(node2)
-if (size_1 > size_2) {
+while (size_1 > size_2) {
   node1 <- node1.parent
   size_1 <- size_1 - 1
 }
-if (size_2 > size_1) {
+while (size_2 > size_1) {
   node2 <- node2.parent
   size_2 <- size_2 - 1
 }
