@@ -8,7 +8,7 @@ do
     inotifywait -q -e close_write "$SRC"
     if [ -f "$SRC" ];
     then
-	g++ -std=c++11 "$SRC" && ./a.out
+	g++ -std=c++11 -Wall -Wextra -D_GLIBCXX_DEBUG "$SRC" && ./a.out
     fi
     
     sleep 1
