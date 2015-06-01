@@ -125,7 +125,7 @@ bool walk(const MatrixType& matrix, int fromRow, int fromColumn, int toRow, int 
 	return false;
 }
 
-void Amazone17()
+void Amazone16()
 {
 	{
 		MatrixType matrix;
@@ -174,7 +174,7 @@ void Amazone17()
 #if !defined(_MSC_VER)
 int main()
 {
-	Amazone17();
+	Amazone16();
 	return 0;
 }
 #endif
